@@ -12,4 +12,4 @@ ActionMailer::Base.smtp_setting = {
   :domain         => 'warm-tundra-10048.herokuapp.com/',
   :authentication => :plain,
 }
-ActionMail::Base.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
