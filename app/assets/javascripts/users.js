@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function(){
   Stripe.setPublishableKey( $('meta[name="stripe-key]').attr('content') );
   
   //When user clicks form submit btn,
-  submitBtn.click(function(){
+  submitBtn.click(function(event){
     event.preventDefault();
     submitBtn.val("Processing").prop('disabled', true); 
     //prevents default submission behavior.
@@ -24,19 +24,19 @@ $(document).on('turbolinks:load', function(){
     
     //Validate card number !is not and allows you to run error if card is invalid
     if(!Stripe.card.validateCardNumber(ccNum)){
-      error = true
-      alert('The credit card number appears to be invalid')
+      error = true;
+      alert('The credit card number appears to be invalid');
     }
     
     //Validate CVC number
     if(!Stripe.card.validateCVC(cvcNum)){
-      error = true
-      alert('The CVC number appears to be invalid')
+      error = true;
+      alert('The CVC number appears to be invalid');
     }    
     //Validate expiration Date
     if(!Stripe.card.validateExpiry(expMonth, expYear)){
-      error = true
-      alert('The expiration date appears to be invalid')
+      error = true;
+      alert('The expiration date appears to be invalid');
     }  
     
     if (error) {
